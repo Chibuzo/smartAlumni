@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Smart Alumni</title>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0;" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+        <META HTTP-EQUIV="Pragma" CONTENT="no-cache" >
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+        <link rel="stylesheet" type="text/css" href="css/icons.css" />  
+
+
+        <link rel="stylesheet" type="text/css" href="css/afui.custom.css"  />
+<!--        <link rel="stylesheet" type="text/css" href="css/af-custom.ui.css"  />-->
+        <link rel="stylesheet" href="css/styles.css" />
+
+
+        <!-- uncomment for intel.xdk apps 
+        <script type="text/javascript" charset="utf-8" src="intelxdk.js"></script>
+        <script type="text/javascript" charset="utf-8" src="xhr.js"></script>
+        -->
+<!--        <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+        <script type="text/javascript" charset="utf-8" src="js/jq.appframework.js"></script>-->
+
+        <script type="text/javascript" charset="utf-8" src="./appframework.js"></script>
+        <!-- include af.desktopBrowsers.js on desktop browsers only -->
+        <script type="text/javascript" charset="utf-8" src="./plugins/af.actionsheet.js"></script>
+        <script type="text/javascript" charset="utf-8" src="./plugins/af.css3animate.js"></script>
+        <script type="text/javascript" charset="utf-8" src="./plugins/af.passwordBox.js"></script>          
+        <script type="text/javascript" charset="utf-8" src="./plugins/af.scroller.js"></script>
+        <script type="text/javascript" charset="utf-8" src="./plugins/af.selectBox.js"></script>
+        <script type="text/javascript" charset="utf-8" src="./plugins/af.touchEvents.js"></script>
+        <script type="text/javascript" charset="utf-8" src="./plugins/af.touchLayer.js"></script>
+        <script type="text/javascript" charset="utf-8" src="./plugins/af.popup.js"></script>
+
+        <script type="text/javascript" charset="utf-8" src="./ui/appframework.ui.js"></script>
+        <!-- <script type="text/javascript" charset="utf-8" src="./ui/transitions/all.js"></script> -->
+        <script type="text/javascript" charset="utf-8" src="./ui/transitions/fade.js"></script>
+        <script type="text/javascript" charset="utf-8" src="./ui/transitions/flip.js"></script>
+        <script type="text/javascript" charset="utf-8" src="./ui/transitions/pop.js"></script>
+        <script type="text/javascript" charset="utf-8" src="./ui/transitions/slide.js"></script>
+        <script type="text/javascript" charset="utf-8" src="./ui/transitions/slideDown.js"></script>
+        <script type="text/javascript" charset="utf-8" src="./ui/transitions/slideUp.js"></script>
+        <script type="text/javascript" charset="utf-8" src="./plugins/af.slidemenu.js"></script>
+        
+
+
+
+        <script>
+            $.ui.useOSThemes = false;
+            
+            if (!((window.DocumentTouch && document instanceof DocumentTouch) || 'ontouchstart' in window)) {
+                var script = document.createElement("script");
+                script.src = "plugins/af.desktopBrowsers.js";
+                var tag = $("head").append(script);
+                //$.os.desktop=true;
+            }
+
+        </script>
+    <script>   
+        $.ui.autoLaunch = false; 
+        $.ui.backButtonText = "Back";
+        
+        $.ui.useOSThemes = false;
+        $.feat.nativeTouchScroll=true;
+    
+        
+        function showInviteActionSheet(){
+
+                $("#afui").actionsheet(
+                [{
+                    text: 'SMS',
+                    cssClasses: 'blue',
+                    handler: function () {
+                      //  alert("sms");
+                    }
+                }, {
+                    text: 'Email',
+                    cssClasses: '',
+                    handler: function () {
+                        //alert("email");
+                    }
+                }]);
+                        
+        }
+        
+
+
+    </script>   
+</head>
+<body> 
+<div id="afui" class="ios7">
+    
+    <div id="content"> 
+       
+        
+    <!-- Views -->
+        
+        
+        <!-- Login View -->
+        <div class="panel" title="Login" id="signin" data-header="none" data-footer="none" selected="true">
+            <div style="text-align:center">
+            <br>
+            <br>
+            <div>
+                <img src="images/app_logo.png">
+            </div>
+            <h2 class="app-name">
+               Smart Alumni
+            </h2>
+            <br>
+            <br>
+            </div>
+            <input name="phone" id='phone-login' type="text" placeholder="Phone Number" />
+            <input name="password" id="password-login" type="password" placeholder="Password" />
+            <a class="block big-btn button-gradient btn-info" href="#" id="login-btn" onclick="login()">Login</a>
+            <a class="block big-btn button-gradient btn-warning" href="#signup" id="goto-signup-btn">Sign Up</a>
+        </div>
+        
+        <!-- Configuration View -->
+        <div class="panel" title="Sign Up" id="signup" data-footer="none">
+            <header>
+                <a id="backButton" href="javascript:;" class="button icon backButton" >Back</a>
+                <h1>Sign Up</h1>
+            </header>
+            
+            <div style="text-align:center; padding-top: 10px;">
+
+<!--            <h1>Sign Up</h1>-->
+
+            <div>
+                <input name="firstname" id='firstname' type="text" placeholder="First Name" />
+                <br>
+                <input name="lastname" id='lastname' type="text" placeholder="Last Name" />
+                <br>
+                <input name="email" id='email' type="text" placeholder="Email" />
+                <br>
+                <input name="phone" id='phone' type="text" placeholder="Phone" />
+                <br>
+                <input name="address" id='address' type="text" placeholder="Address" />
+                <br>
+                <input name="dob" id='dob' type="date" placeholder="Date of Birth" />
+                <br>
+                <input name="occupation" id='occupation' type="text" placeholder="Date of Birth" />
+                <br>
+                <input name="religion" id='religion' type="text" placeholder="Religion" />
+                <br>                
+                <select name="gender" id="gender" class="bio-rq">
+                    <option value="">-- Select Gender --</option>
+                    <option value="Female">Female</option>
+                    <option value="Male">Male</option>
+                </select>
+                <br><br>
+                <select name="marital_status" id="marital_status" class="bio-rq">
+                    <option value="">-- Select Marital Status --</option>
+                    <option value="Single">Single</option>
+                    <option value="Married">Married</option>
+                    <option value="Divorced">Divorced</option>
+                    <option value="Separated">Separated</option>
+                    <option value="Widowed">Widowed</option>
+                </select>
+                <br>                
+                <input name="password" id='password' type="password" placeholder="Password" />
+                <br>
+                <input name="verifypassword" id='verifypassword' type="password" placeholder="Verify Password" />
+                <br>
+                <a class="block big-btn button-gradient btn-success" href="#" id="proceed-btn" onclick="proceedToAlumniSetup()">Proceed</a>
+            </div>
+            </div>
+        </div>
+        
+        <div class="panel" title="School Setup" id="school-setup" data-footer="none">
+            <header>
+                <a id="backButton" href="javascript:;" class="button icon backButton" >Back</a>
+                <h1>Alumni Setup</h1>
+            </header>
+            
+            <div style="padding-top: 10px;">
+                <div class="school-wrapper-setup">
+                    <h4><i class="icon home"></i> Primary School</h4>
+                    <div>
+                        <select name="pri-sch-state" id="pri-sch-state" onchange="fetchSchoolsByType(1)">
+                            <option value="">Select State</option>
+                        </select>
+                        
+                        <input name="primary_school" id="primary_school_field" type="text" placeholder="Name Of Primary School" onkeyup="autocompleteSchoolsList(1)"
+                               onblur="checkSchoolId(1)"/>
+                        <span class="inv-sch" id="inv-pri"></span>
+                        
+                        <ul id="pri-sch-autocomplete-list" class="list inset autocomplete-list">
+                        </ul>
+                        
+                        
+                        <input name="pri_grad_year" id="pri_grad_year" type="number" placeholder="Year Of Graduation" />
+                    </div>
+                </div>
+                
+                <div class="school-wrapper-setup">
+                    <h4><i class="icon home"></i> Secondary School</h4>
+                    <div>
+                        <select name="sec-sch-state" id="sec-sch-state" onchange="fetchSchoolsByType(2)">
+                            <option value="">Select State</option>
+                        </select>
+                        
+                        <input name="secondary_school" id="secondary_school_field" type="text" placeholder="Name Of Secondary School" onkeyup="autocompleteSchoolsList(2)" 
+                               onblur="checkSchoolId(2)"/>
+                        <span class="inv-sch" id="inv-sec"></span>
+                        <ul id="sec-sch-autocomplete-list" class="list inset autocomplete-list">
+                        </ul>
+                        
+                        <input name="sec_grad_year" id="sec_grad_year" type="number" placeholder="Year Of Graduation" />
+                    </div>
+                </div>
+                
+                
+                <div class="school-wrapper-setup">
+                    <h4><i class="icon home"></i> University</h4>
+                    <div>
+                        <select name="uni-state" id="uni-state" onchange="fetchSchoolsByType(3)">
+                            <option value="">Select State</option>
+                        </select>
+                        
+                        <input name="university" id="university_field" type="text" placeholder="Name Of University" onkeyup="autocompleteSchoolsList(3)"
+                               onblur="checkSchoolId(3)"/>
+                        <span class="inv-sch" id="inv-uni"></span>
+                        
+                        <ul id="uni-autocomplete-list" class="list inset autocomplete-list">
+                        </ul>
+                        <input name="uni_grad_year" id="uni_grad_year" type="number" placeholder="Year Of Graduation" />
+                    </div>
+                </div>
+                
+                <a class="button block green" href="#" id="signup-btn" onclick="setupSchools()">Submit</a>
+            </div>
+        </div>
+        
+
+            <!--Tab View Pages-->
+            <div class="panel" title="Chats" id="chats" data-tab="tab1" >
+                <header>
+                    <h1>Chats</h1>
+<!--                    <a href="#new-message" data-transition="up" class="button icon pencil" style="float:right;"></a>-->
+                </header>
+                <div>
+                    <ul class="list" id="chats-list">
+<!--                        
+                        <li>
+                            <a href="#chat">
+                                <img class="list-image" src="images/default_avatar.png" />
+                                <div class="list-text">
+                                    <b>Contact 1</b>
+                                    <br>
+                                    <span class="message-snippet">Placeholder message snippet.</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#chat">
+                                <img class="list-image" src="images/default_avatar.jpg" />
+                                <div class="list-text">
+                                    <b>Contact 2</b>
+                                    <br>
+                                    <span class="message-snippet">Placeholder message snippet.</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#chat">
+                                <img class="list-image" src="images/default_avatar.jpg" />
+                                <div class="list-text">
+                                    <b>Contact 3</b>
+                                    <br>
+                                    <span class="message-snippet">Placeholder message snippet.</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#chat">
+                                <img class="list-image" src="images/default_avatar.jpg" />
+                                <div class="list-text">
+                                    <b>Contact 4</b>
+                                    <br>
+                                    <span class="message-snippet">Placeholder message snippet.</span>
+                                </div>
+                            </a>
+                        </li>                
+        -->
+                    </ul>
+                    <div id="no-chats" class="no-content">
+                        <div class="no-content-message">
+                            You currently have no active chats.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel" title="Groups" id="groups" data-tab="tab2">
+                <header>
+                    <h1>Groups</h1>
+                </header>
+                <div>
+                    <ul class="list list-group" id="groups-list">
+<!--                        
+                        <li>
+                            <a href="#chat">
+                                <img class="list-image list-image-contacts" src="images/group_icon.jpg" />
+                                <div class="list-text">
+                                    <b>Group 1</b>
+                                    <br>
+                                    <span class="group-year-holder">Class of 1998</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#chat">
+                                <img class="list-image list-image-contacts" src="images/group_icon.jpg" />
+                                <div class="list-text">
+                                    <b>Group 2</b>
+                                    <br>
+                                    <span class="group-year-holder">Class of 1998</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#chat">
+                                <img class="list-image list-image-contacts" src="images/group_icon.jpg" />
+                                <div class="list-text">
+                                    <b>Group 3</b>
+                                    <br>
+                                    <span class="group-year-holder">Class of 1998</span>
+                                </div>
+                            </a>
+                        </li>              
+        -->
+                    </ul>
+                    
+                    <div id="no-groups" class="no-content">
+                        <div class="no-content-message">
+                            You currently don't belong in any groups.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="panel" title="Contacts" id="contacts" data-tab="tab3">
+                <header>
+                    <h1>Contacts</h1>
+                </header>
+                <div>
+                    <ul class="list list-contacts" id="contacts-list">
+<!--                        
+                        <li>
+                            <a href="#chat">
+                                <img class="list-image list-image-contacts" src="images/default_avatar.png" />
+                                <div class="list-text list-text-contacts">
+                                    <b>Contact 1</b>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#chat">
+                                <img class="list-image list-image-contacts" src="images/default_avatar.jpg" />
+                                <div class="list-text list-text-contacts">
+                                    <b>Contact 2</b>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#chat">
+                                <img class="list-image list-image-contacts" src="images/default_avatar.jpg" />
+                                <div class="list-text list-text-contacts">
+                                    <b>Contact 3</b>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#chat">
+                                <img class="list-image list-image-contacts" src="images/default_avatar.jpg" />
+                                <div class="list-text list-text-contacts">
+                                    <b>Contact 4</b>
+                                </div>
+                            </a>
+                        </li>                
+        -->
+                    </ul>
+                    
+                    <div id="no-contacts" class="no-content">
+                        <div class="no-content-message">
+                            You currently don't have any contacts.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel" title="Projects" id="projects" data-tab="tab4" >
+                <header>
+                    <h1>Projects</h1>
+                </header>
+                <div>
+                    <ul class="list" id="projects-list">
+<!--                        
+                        <li>
+                            <a href="#project">
+                                <img class="list-image" src="images/Project_1.jpg" />
+                                <div class="list-text">
+                                    <b>Science Laboratory</b>
+                                    <br>
+                                    The Science lab must be superb, okay? And we will be needing all the support ,,,
+                                    <br>
+                                    <small><i>St Gregory's College</i></small>
+                                </div>
+                            </a>
+                        </li>-->
+                    </ul>
+                    
+                    <div id="no-projects" class="no-content">
+                        <div class="no-content-message">
+                            Your schools currently have no outstanding projects.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            
+            <div class="panel" title="Settings" id="settings" data-tab="tab5">
+                <header>
+                    <h1>Settings</h1>
+                </header>
+                <div>
+                    <ul class="list" id="settings-list">
+                        
+                        <li>
+                            <a href="#request"> 
+                            <img class="list-image" src="images/contact_request.png" />
+                            <div class="list-text">
+                                <br>
+                                <b>Requests</b>
+                            </div>
+                            </a>
+                        </li>
+<!--                        
+                        <li onclick="showInviteActionSheet()">
+                            <img class="list-image" src="images/send_invite.jpeg" />
+                            <div class="list-text">
+                                <br>
+                                <b>Invite A Friend</b>
+                            </div>
+                        </li>
+                        -->
+                        <li>
+                            <a href="javascript:logout()">
+                                <img class="list-image" src="images/logout-icon.png" />
+                                <div class="list-text">
+                                    <br>
+                                    <b>Log Out</b>
+                                </div>
+                            </a>                            
+                        </li>              
+       
+                    </ul>
+                </div>
+            </div>
+        
+        
+            <!-- Chat View -->
+            <div class="panel" title="chat" id="chat">
+                <header>
+                    <a id="backButton" href="javascript:;" class="button icon backButton" >Back</a>
+                    <h1 id="contact-name"></h1>
+<!--                    <img class="chat-photo-header" src="images/default_avatar.png" style="float:right;" />-->
+                </header>
+                <div id="chat-page-content">
+                    <div id="chat-area" class="chatArea scroller">
+                  <!--
+                    <div class="chatArea scroller">
+                        <div class="bubbledLeft">
+                            <span class="msg-name">Ken Masters</span>
+                            <br>
+                            <div class='msg-content'>
+                            Hi
+                            </div>
+                            <br>
+                            <span class="msg-date-time">12:00</span>
+                        </div>
+                        <div class="bubbledRight">
+                            <span class="msg-name">Ryu Hoshi</span>
+                            <br>
+                            <div class='msg-content'>
+                            Hi there yourself
+                            </div>
+                            <br>
+                            <span class="msg-date-time">12:00</span>
+                        </div>
+                        <div class="bubbledLeft">
+                            <span class="msg-name">Ken Masters</span>
+                            
+                            <br>
+                            <div class='msg-content'>
+                            Do you speak Latin?
+                            </div>
+                            <br>
+                            <span class="msg-date-time">12:00</span>
+                        </div>
+                        <div class="bubbledRight">
+                            <span class="msg-name">Ryu Hoshi</span>
+                            <br>
+                            <div class='msg-content'>
+                            Yes
+                            </div>
+                            <br>
+                            <span class="msg-date-time">12:00</span>
+                        </div>
+                        <div class="bubbledLeft">
+                            <span class="msg-name">Ken Masters</span>
+                            <br>
+                            <div class='msg-content'>
+                            Prove it
+                            </div>
+                            <br>
+                            <span class="msg-date-time">12:00</span>
+                        </div>
+                        <div class="bubbledRight">
+                            <span class="msg-name">Ryu Hoshi</span>
+                            <br>
+                            <div class='msg-content'>
+                            Lorem ipsum dolor sit amet,
+                            consectetur adipisicing elit, sed do eiusmod tempor
+                            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                            quis nostrud exercitation ullamco laboris nisi ut aliquip 
+                            ex ea commodo consequat. Duis aute irure dolor in reprehenderit 
+                            in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+                            Excepteur sint occaecat cupidatat non proident, sunt in culpa
+                            qui officia deserunt mollit anim id est laborum.
+                            </div>
+                            <br>
+                            <span class="msg-date-time">12:00</span>
+                        </div>
+                        <div class="bubbledLeft">
+                            <span class="msg-name">Ken Masters</span>
+                            <br>
+                            <div class='msg-content'>
+                            OK
+                            </div>
+                            <br>
+                            <span class="msg-date-time">12:00</span>
+                        </div>
+                        <div class="bubbledLeft">
+                            <span class="msg-name">Ken Masters</span>
+                            <br>
+                            <div class='msg-content'>
+                            Take it all back, you do speak latin.
+                            </div>
+                            <br>
+                            <span class="msg-date-time">12:00</span>
+                        </div>
+                    </div>
+                    -->
+                    </div>
+                    
+                </div>
+                
+                <footer id="chat-page-footer-wrapper">
+                    <div id="chat-page-footer">
+                        <div id="msg-input-container">
+                            
+                            <textarea rows="1" id="message-field" placeholder="Enter Message ..."></textarea>
+                        </div>
+                        <div id="send-msg-btn-container">
+                            <a id="send-msg-btn" href="#" class="buton btn-info" onclick="sendSingleMessage()">gjbkbjgkSend</a>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+            
+            <!-- Group Chat View -->
+            <div class="panel" title="Group Chat" id="group-chat">
+                <header id='group-chat-header'>
+                    <a id="backButton" href="javascript:;" class="button icon backButton" >Back</a>
+                    <h1  style="font-size: 15px;">
+                        <span id='group-name'></span>
+                        <br>
+                        <small id='group-set' style="font-size: 10px;"></small>
+                    </h1>
+                    <a id='group-members-link' class='button icon info big' href="#group-members" style="float: right;"></a>
+                </header>
+                <div id="group-chat-page-content">
+                    
+                    <div id="group-chat-area" class="chatArea scroller">
+                        
+                        <!--
+                        <div class="bubbledLeft">
+                            <span class="msg-name">Ken Masters</span>
+                            <br>
+                            <div class='msg-content'>
+                            Hi
+                            </div>
+                            <br>
+                            <span class="msg-date-time">
+                                12:00
+                                
+                            </span>
+                        </div>
+                        <div class="bubbledRight">
+                            <span class="msg-name">Ryu Hoshi</span>
+                            <br>
+                            <div class='msg-content'>
+                            Hi there yourself
+                            </div>
+                            <br>
+                            <span class="msg-date-time">
+                                12:00
+                                <img src="images/msg_status_sent.png">
+                            </span>
+                        </div>
+                        <div class="bubbledLeft">
+                            <span class="msg-name">Ken Masters</span>
+                            
+                            <br>
+                            <div class='msg-content'>
+                            Do you speak Latin?
+                            </div>
+                            <br>
+                            <span class="msg-date-time">12:00</span>
+                        </div>
+                        <div class="bubbledRight">
+                            <span class="msg-name">Ryu Hoshi</span>
+                            <br>
+                            <div class='msg-content'>
+                            Yes
+                            </div>
+                            <br>
+                            <span class="msg-date-time">12:00</span>
+                        </div>
+                        <div class="bubbledLeft">
+                            <span class="msg-name">Ken Masters</span>
+                            <br>
+                            <div class='msg-content'>
+                            Prove it
+                            </div>
+                            <br>
+                            <span class="msg-date-time">12:00</span>
+                        </div>
+                        <div class="bubbledRight">
+                            <span class="msg-name">Ryu Hoshi</span>
+                            <br>
+                            <div class='msg-content'>
+                            Lorem ipsum dolor sit amet,
+                            consectetur adipisicing elit, sed do eiusmod tempor
+                            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                            quis nostrud exercitation ullamco laboris nisi ut aliquip 
+                            ex ea commodo consequat. Duis aute irure dolor in reprehenderit 
+                            in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+                            Excepteur sint occaecat cupidatat non proident, sunt in culpa
+                            qui officia deserunt mollit anim id est laborum.
+                            </div>
+                            <br>
+                            <span class="msg-date-time">12:00</span>
+                        </div>
+                        <div class="bubbledLeft">
+                            <span class="msg-name">Ken Masters</span>
+                            <br>
+                            <div class='msg-content'>
+                            OK
+                            </div>
+                            <br>
+                            <span class="msg-date-time">12:00</span>
+                        </div>
+                        <div class="bubbledLeft">
+                            <span class="msg-name">Ken Masters</span>
+                            <br>
+                            <div class='msg-content'>
+                            Take it all back, you do speak latin.
+                            </div>
+                            <br>
+                            <span class="msg-date-time">12:00</span>
+                        </div>
+                        
+                        -->
+                    </div>
+                    
+                    
+                    
+                </div>
+                
+                <footer id="group-chat-page-footer-wrapper">
+                    <div id="group-chat-page-footer">
+                        <div id="group-msg-input-container">
+                            
+                            <textarea rows="1" id="group-message-field" placeholder="Enter Message ..."></textarea>
+                        </div>
+                        <div id="send-group-msg-btn-container">
+                            <a id="send-group-msgbtn" href="#" class="button-gradient btn-info" onclick="sendGroupMessage()">Send</a>
+
+                        </div>
+                    </div>
+                </footer>
+            </div>
+            
+            <div class="panel" title="Group Members" id="group-members" data-footer="none">
+                <header>
+                    <a id="backButton" href="javascript:;" class="button icon backButton" >Back</a>
+                    <h1>Group Info</h1>
+                </header>
+                <div>
+                    <div  style="text-align: center;">
+                        <div class="button-grouped tabbed">
+                            <a href="#" class="button pressed" data-transition="none" onclick="showGroupMembers()">Members</a>
+                            <a href="#" class="button" data-transition="none" onclick="showGroupPolls()">Polls</a>
+                        </div>  
+                    </div>
+                    
+                    <div id="grp-membs">
+                        <ul class="list list-contacts" id="group-members-list">
+                        </ul>
+                    </div>
+                    
+                    <div id="grp-polls" style="display: none;">
+                        <ul class="list">
+                            <li onclick="showCreatePollPopup()">
+                                <img class="list-image" src="images/new_poll.png" />
+                                <div class="list-text">
+                                    <br>
+                                    <b>New Poll</b>
+                                </div>
+                            </li>
+                        </ul>
+                        
+                        <ul class="list list-contacts" id="group-polls-list">
+<!--                            <li class="divider">Total Polls : 4</li>
+                            <li>
+                                <a href="#poll">
+                                    <img class="list-image list-image-contacts" src="images/poll_icon.png" />
+                                    <div class="list-text">
+                                        <b>Science Lab Project or Fine Art Project ?</b>
+                                        <br>
+                                        <small>Created by Chibuzo Okolo</small>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#poll">
+                                    <img class="list-image list-image-contacts" src="images/poll_icon.png" />
+                                    <div class="list-text">
+                                        <b>Science Lab Project or Fine Art Project ?</b>
+                                        <br>
+                                        <small>Created by Chibuzo Okolo</small>
+                                    </div>
+                                </a>
+                            </li>
+                                                        <li>
+                                <a href="#poll">
+                                    <img class="list-image list-image-contacts" src="images/poll_icon.png" />
+                                    <div class="list-text">
+                                        <b>Science Lab Project or Fine Art Project ?</b>
+                                        <br>
+                                        <small>Created by Chibuzo Okolo</small>
+                                    </div>
+                                </a>
+                            </li>-->
+                        </ul>
+                    </div>
+                    
+                </div>
+            </div>
+            
+            
+            <div class="panel" title="Poll" id="poll" data-footer="none">
+                <header>
+                    <a id="backButton" href="javascript:;" class="button icon backButton" >Back</a>
+                    <h1>Poll</h1>
+                </header>
+                <div style="text-align: center;">
+                    <div>
+                        <img src="images/poll_icon.png" alt="">
+                    </div>
+                    <div>
+                        <h3 id="poll_title">Science Lab Project or Fine Art Project ?</h3>
+                    </div>
+                    
+                    <div id="poll_choices">
+                        <div>
+                            <span class="poll_choice" id="poll-agree">
+                                <img src="images/agree.png" id="agree_img">
+                            </span>
+                            <br>
+                            <b id="agree_count"></b>
+                        </div>
+                        <div>
+                            <span class="poll_choice" id="poll-disagree">
+                                <img src="images/disagree.png" id="disagree_img">
+                            </span>
+                            <br>
+                            <b id="disagree_count"></b>
+                        </div>
+                        
+                    </div>
+                    
+                    <div id="poll-voters">
+                        <ul class="list" id="poll-voters-list" style="text-align: left;">
+<!--                            
+                            <li>
+                                <img class="list-image list-image-contacts" src="images/agree.png" />
+                                <div class="list-text list-text-contacts">
+                                    <b>Chibuzo Okolo</b>
+                                </div>
+                            </li>
+                            <li>
+                                <img class="list-image list-image-contacts" src="images/disagree.png" />
+                                <div class="list-text list-text-contacts">
+                                    <b>Udeme Ekarika</b>
+                                </div>
+                            </li>
+                            <li>
+                                <img class="list-image list-image-contacts" src="images/disagree.png" />
+                                <div class="list-text list-text-contacts">
+                                    <b>Yinka Goodluck</b>
+                                </div>
+                            </li>
+                            <li>
+                                <img class="list-image list-image-contacts" src="images/disagree.png" />
+                                <div class="list-text list-text-contacts">
+                                    <b>Jide Kolade</b>
+                                </div>
+                            </li>
+                            <li>
+                                <img class="list-image list-image-contacts" src="images/agree.png" />
+                                <div class="list-text list-text-contacts">
+                                    <b>Tolu Olugbemi</b>
+                                </div>
+                            </li>
+                            <li>
+                                <img class="list-image list-image-contacts" src="images/disagree.png" />
+                                <div class="list-text list-text-contacts">
+                                    <b>Pat Amobi</b>
+                                </div>
+                            </li>
+                            -->
+                        </ul>
+                    </div>
+
+                    
+                </div>
+            </div>
+            
+            <!-- Project View -->
+            <div class="panel" title="Project" id="project" data-footer="none">
+                <header>
+                    <a id="backButton" href="javascript:;" class="button icon backButton" >Projects</a>
+                    <h1 id="project-title"></h1>
+                </header>
+                <div id="project-page-content">
+                    <div id="project-page-content-head">
+                        <img id="project-image">
+                    </div>
+                    <div id="project-page-content-body">
+                        <p id="project-desc">
+
+                        </p>
+                        <p>
+                            <b>Raised : </b><i id="project-amount-raised"></i>
+                            <br>
+                            <b>Required : </b><i id="project-budget"></i>
+                        </p>
+                    </div>
+                    
+                    <div>
+                        <a id="project-donate" class="button block green">Donate</a>
+                    </div>
+                    
+                    
+                </div>
+                
+            </div>
+            
+            
+            <div class="panel" title="Contact Requests" id="request" data-footer="none">
+                <header>
+                    <a id="backButton" href="javascript:;" class="button icon backButton" >Back</a>
+                    <h1>Requests</h1>
+                </header>
+                <div>
+                    <div  style="text-align: center;">
+                        <div class="button-grouped tabbed">
+                            <a href="#" class="button pressed" data-transition="none" onclick="showRequestsReceived()">Received</a>
+                            <a href="#" class="button" data-transition="none" onclick="showRequestsSent()">Sent</a>
+                        </div>  
+                    </div>
+                    
+                    <div id="req-received">
+                        <ul class="list list-contacts" id="req-received-list">
+<!--                            <li>
+                                <img class="list-image list-image-contacts" src="images/unknown_user.jpg" />
+                                    <div class="list-text">
+                                        <b>Tolu Oluwagbemi</b>
+                                        <br>
+                                        <small>Hello, I'd like to add you as a contact.</small>
+                                        <div class='contact_request_options'>
+                                            <a href="#" class='accept_request button green'>Accept</a>
+                                            <a href="#" class='decline_request button red'>Decline</a>
+                                        </div>
+                                    </div>
+
+                            </li>-->
+                        </ul>
+                    </div>
+                    
+                    <div id="req-sent" style="display: none;">
+                        <ul class="list list-contacts" id="req-sent-list">
+<!--                            <li>
+                                <img class="list-image list-image-contacts" src="images/no_contact.png" />
+                                    <div class="list-text list-text-contacts">
+                                        <b>Tolu Oluwagbemi</b>
+
+                                    </div>
+
+                            </li>-->
+                        </ul>
+                    </div>
+                    
+                </div>
+            </div>
+        
+
+
+    </div>
+        <!--Footer with Tabs or Navigation bar -->
+    <div id="navbar" class="custom-navbar">
+        <a href="#chats" id='tab1' class="icon chat" data-transition="none">Chats</a>
+        <a href="#groups" id='tab2' class="icon database" data-transition="none">Groups</a>
+        <a href="#contacts" id='tab3' class="icon user" data-transition="none">Contacts</a>
+        <a href="#projects" id='tab4' class="icon folder" data-transition="none">Projects</a>
+        <a href="#settings" id='tab5' class="icon settings" data-transition="none">More</a>
+<!--        <a href="#page4" id='tab4' class="icon user" data-transition="none">Profile</a>-->
+    </div>
+
+</div>
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    <script type="text/javascript" src="PushNotification.js"></script>
+    
+    
+    <script type="text/javascript" src="js/moment.min.js"></script>
+    <script type="text/javascript" src="js/functions.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+</body>
+</html>    

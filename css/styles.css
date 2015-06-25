@@ -1,0 +1,398 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Jul 21, 2014, 11:51:32 AM
+    Author     : PTL1
+*/
+
+#signin{
+   /*background-image: url(../images/app_bg.png) !important;*/
+   background-color: #15a2d8 !important;
+}
+
+.app-name{
+    color: #FFF !important;
+    font-size: 20px !important;
+}
+
+header{
+    background-color: #1eb0e9 !important;
+    color: #FFF !important;
+}
+
+header a{
+    color: #FFF !important;
+    background-color: #1eb0e9 !important;
+}
+
+header a:active, header a:focus{
+    background-color: #1eb0e9 !important;
+}
+
+.button-gradient {
+    border: 1px solid #e8ebed;
+    border-radius: 5px;
+    color: #858385;
+    display: block;
+    font-size: 1.2em;
+    font-weight: 200;
+    letter-spacing: -0.035em;
+    line-height: 1em;
+    margin-bottom: 3px;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+}
+
+input[type="text"], input[type="password"] {
+    border: 1px solid #7190b9;
+    border-radius: 4px;
+    color: #343434;
+    font-size: 0.9em;
+    margin-top: 3px;
+    padding: 8px 5px;
+    width: 100%;
+}
+
+.btn-gradient {
+    background: #ffffff linear-gradient(to bottom, #ffffff, #cbd0d6) repeat scroll 0 0;
+    color: #858385;
+}
+
+.btn-success {
+    background-color: #00a65a;
+    border-color: #008d4c;
+    color: #ffffff;
+}
+
+.btn-info {
+    background-color: #00c0ef;
+    border-color: #00acd6;
+    color: #ffffff;
+}
+
+.btn-warning {
+    background-color: #f39c12;
+    border-color: #e08e0b;
+    color: #ffffff;
+}
+
+.btn-danger {
+    background-color: #dd4b39;
+    border-color: #d73925;
+    color: #ffffff;
+}
+
+/*#login-btn{
+    background-color: #FFF !important;
+    border-color: #FFF !important;
+}
+
+#goto-signup-btn{
+    background-color: #0f6e93 !important;
+    border-color: #1fb0e9 !important;
+}*/
+
+#afui #listview .list li {
+    padding:10px 20px 10px 10px;
+}
+.list-image {
+    float:left;
+    width:50px;
+    height:50px;
+}
+.list-text {
+    margin-left:60px;
+    min-height:50px;
+}    
+
+ul.list-contacts li {
+    padding: 10px 5px 5px 5px !important;
+}
+
+.list-image-contacts{
+    float:left;
+    width:30px;
+    height:30px;
+}
+
+.list-text-contacts{
+    min-height:40px;
+    padding-top: 10px;
+}
+
+.chat-photo-header{
+    width:40px;
+    height:40px;
+}
+
+.bubbledLeft, .bubbledRight {
+    margin-top: 3px;
+    padding: 5px 15px;
+    width: 80%;
+    max-width: 85%;
+    clear: both;
+    /*border: 1px solid white;*/
+    border-radius: 5px 5px 5px 0px;	
+    -webkit-border-radius: 5px 5px 5px 0px;
+    -moz-border-radius: 5px 5px 5px 0px;
+    -o-border-radius: 5px 5px 5px 0px;
+    -ms-border-radius: 5px 5px 5px 0px;
+}
+
+.bubbledLeft{
+    float: left;
+    margin-right: auto;
+    background-color: #fff;
+}
+
+.bubbledRight{
+    float: right;
+    margin-left: auto;
+    text-align: right;
+    background-color: #f7f7f7;
+    color: #fff;
+}
+
+.msg-name {
+    font-size: 12px;
+    font-weight: bold;
+	color:#666;
+}
+
+.msg-content{
+    margin-top: 5px;
+	color:#999;
+}
+
+.msg-date-time{
+    font-size: 10px;
+	color: #999
+}
+
+.bubbledLeft .msg-date-time{
+    text-align: left !important;
+}
+
+.bubbledRight .msg-date-time{
+    text-align: right !important;
+}
+
+#chat-page-footer , #group-chat-page-footer{
+    padding: 2%;
+   // padding-bottom: 13px;
+    
+}
+
+#chat-page-footer div ,  #group-chat-page-footer div{
+    float: left;
+}
+
+#msg-input-container ,  #group-msg-input-container{
+    width: 73%;
+
+}
+#send-msg-btn-container , #send-group-msg-btn-container{
+    width: 22%;
+    margin-left: 3%;
+}
+
+#send-msg-btn{
+    position: relative;
+    bottom: 5px;
+    background-color: #1eb0e9 !important;
+    color: #FFF !important;
+
+}
+
+#send-group-msg-btn{
+    position: relative;
+    bottom: 5px;
+    background-color: #00FF00 !important;
+    color: #FFF !important;
+
+}
+
+#chat , #group-chat{
+   background-color: #F1F1F1 !important; 
+}
+
+#project-page-content-head{
+    margin-top: 10px;
+    height: 120px;
+    text-align: center;
+    background-color: #fff;
+}
+
+#project-image{
+    width:120px;
+    height:120px;
+}
+
+.panel{
+     background-color: #fff !important; 
+}
+
+.custom-navbar{
+    background-color: #1eb0e9 !important;
+}
+
+.custom-navbar a{
+    color: #FFF !important;
+   
+}
+.custom-navbar a.pressed{
+
+    color: rgba(82,155,234,255) !important;
+}
+
+input.login-field{
+    height: 50px !important;
+}
+
+a.big-btn{
+    height: 40px !important;
+    padding-top: 10px !important;
+}
+
+.message-snippet{
+    font-style: italic;
+    color: #888;
+}
+
+.school-wrapper-setup{
+    border: 1px solid #CCC;
+    margin: 5%;
+    padding: 3%;
+    
+}
+
+.school-wrapper-setup h4{
+    margin-bottom: 10px;
+}
+
+ul.autocomplete-list{
+    margin-bottom: 10px !important;
+    display: none;
+}
+
+ul.autocomplete-list li{
+    border-left: none !important;
+    border-right: none !important; 
+    border-top: none !important;
+}
+
+.inv-sch{
+    font-size: 12px;
+    color: red;
+    position: relative;
+    bottom: 7px;
+}
+
+.no-content{
+    width: 100%;
+    min-height: 300px;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.no-content-message{
+    text-align: center;
+    color: #2AB1E0;
+    position: relative;
+    top: 230px;
+}
+
+#no-chats{
+    background-image: url(../images/no_chat.png);
+
+}
+
+textarea {
+	font: normal 14px Tahoma, Arial, serif;
+}
+
+#no-groups{
+    background-image: url(../images/no_group.png);
+
+}
+
+#no-contacts{
+    background-image: url(../images/no_contact.png);
+
+}
+
+#no-projects{
+    background-image: url(../images/no_project.png);
+
+}
+
+#poll_choices div{
+    float: left;
+    width: 50%;
+    
+}
+
+#poll_choices {
+    clear: both;
+    height: 100px;
+}
+
+#afui label {
+    width: 5%;
+}
+#afui label + input[type="date"]{
+    width: 95%;
+}
+
+#group-chat{
+   /*// background-image: url(../images/chat_bg_2.jpg) !important;
+   // background-repeat: no-repeat;
+   //background-color: #2f4158 !important;*/
+}
+
+.af-badge{
+    position: relative !important;
+    top: 41px !important;
+    left: 90% !important;
+}
+
+.align-left{
+    text-align: left !important;
+}
+
+.contact_request_options{
+   // margin-top: 10px;
+    font-size: 12px;
+}
+
+.contact_request_options span{
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.accept_request{
+   // color: #00FF00;
+}
+
+.decline_request{
+   // color: #d11;
+}
+
+li.pending_request{
+    background-image: url(../images/pending.png) !important;
+    background-position: right;
+    background-repeat: no-repeat;
+}
+
+.status-indicator{
+    padding-left: 2px;
+    width: 12px;
+    height: 12px;
+}
+
+

@@ -1,0 +1,170 @@
+.panel-body{
+    margin-top: 10px;
+}
+
+/* css for custom list item, modify as needed */        
+#afui #listview .list li {
+/*    padding:10px 20px 10px 10px;*/
+}
+
+ul.listview li{
+    height: 50px;
+    padding:10px 20px 10px 10px;
+}
+
+ul.listview li h4{
+    color: #943634;
+}
+
+.list-image {
+    float:left;
+    width:20px;
+    height:20px;
+}
+.list-text {
+    margin-left:30px;
+/*    min-height:20px;*/
+    text-align: left;
+    padding-top: 0px;
+}
+
+ul.list-item li{
+    height:50px;
+    cursor: pointer;
+}
+
+.desc-div{
+   float:left;
+   width: 95%;
+}
+
+.cbox-div{
+    float:left;
+    width: 5%;
+ 
+}
+
+a.custom-btn{
+    box-shadow: none;
+    border-radius: 0 !important;
+    border-color: #ccc !important;
+    background-color: #FFF !important;
+    color: rgba(82,155,234,255) !important;
+    text-shadow: none !important;
+}
+
+.dLabels{
+    margin-bottom: 10px;
+}
+
+#pjList{
+    margin-bottom: 30px;
+    max-height: 150px;
+    margin-left: 0;
+    padding-left: 0;
+}
+
+ul#beneficiaries-list li , ul#banks-list li{
+    height: 80px;
+}
+
+ul#beneficiaries-list li p {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+ ul#banks-list li p{
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.check-btn{
+    color: #00FF00;
+}
+
+.remove-btn{
+    color: red;
+}
+
+ul#trans-history-list li{
+    height: 80px;
+}
+
+ul#trans-history-list div.desc-div{
+    width: 80%;
+}
+
+ul#trans-history-list div.cbox-div{
+    width: 20%;
+}
+
+#curr-bal-div{
+    padding-top: 25px;
+    height: 80px;
+    text-align: right;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.debit{
+    color: red;
+/*    font-weight: bold;*/
+}
+
+.credit{
+    color: #009C0C;
+/*    font-weight: bold;*/
+}
+/* CSS responsive square grid */        
+/*.grid-photo {
+    margin:3px -7px;
+} 
+.grid-photo:after {
+    content:'';
+    display:block;
+    clear:both;
+}        
+.grid-photo li {
+    position: relative;
+    display:block;
+    float:left;
+    width: 10%;
+    padding-bottom: 10%;
+}
+.grid-photo .grid-photo-box {
+    position: absolute;
+    left: 3px;
+    right: 3px;
+    top: 3px;
+    bottom: 3px;
+    background-color: inherit;
+    border: none;
+} 
+.grid-photo img {
+    width:100%;
+    height:100%
+}
+@media only screen and (max-width : 1024px) {
+    .grid-photo li {
+        width: 50%; 
+        padding-bottom: 50%;
+    }         
+}        
+@media only screen and (max-width : 768px) {
+    .grid-photo li {
+        width: 50%;
+        padding-bottom: 50%;
+    }         
+}        
+@media only screen and (max-width : 480px) {
+    .grid-photo li {
+        width: 50%; 
+        padding-bottom: 50%;
+    }        
+}
+@media only screen and (max-width : 320px) {
+    .grid-photo li {
+        width: 50%;
+        padding-bottom: 50%;
+    }        
+}  */
